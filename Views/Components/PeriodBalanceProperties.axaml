@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="FinBalance2.Views.Components.PeriodBalanceProperties"
+             Background="Transparent">
+    <StackPanel Orientation="Horizontal">
+        <Label VerticalAlignment="Center" Margin="0,0,7,0">Período de </Label>
+        <DatePicker x:Name="dpBegin"/>
+        <Label VerticalAlignment="Center" Margin="7,0,7,0">a</Label>
+        <DatePicker x:Name="dpEnd"/>
+    </StackPanel>
+</UserControl>

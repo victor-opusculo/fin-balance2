@@ -1,0 +1,142 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <StackPanel>
+            <TextBlock Classes="AppTitle" FontWeight="DemiBold">Test Text</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <RadioButton Classes="MovementTypeSelector">AAAA</RadioButton>
+                <RadioButton Classes="MovementTypeSelector">BBBB</RadioButton>
+                <RadioButton Classes="MovementTypeSelector">CCCC</RadioButton>
+                <RadioButton Classes="MovementTypeSelector">DDDD</RadioButton>
+            </StackPanel>
+            <Button>Button</Button>
+            <DatePicker/>
+        </StackPanel>
+    </Design.PreviewWith>
+
+    <Style>
+        <Style.Resources>
+            <LinearGradientBrush x:Key="ButtonBackgroundGradient" StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Offset="0.0" Color="#888888"/>
+                <GradientStop Offset="1.0" Color="#222222"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="ButtonBackgroundGradientOnHover" StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Offset="0.0" Color="#777777"/>
+                <GradientStop Offset="1.0" Color="#222222"/>
+            </LinearGradientBrush>
+            <LinearGradientBrush x:Key="ButtonBackgroundGradientOnPressed" StartPoint="0%,0%" EndPoint="0%,100%">
+                <GradientStop Offset="0.0" Color="#333333"/>
+                <GradientStop Offset="1.0" Color="#555555"/>
+            </LinearGradientBrush>
+        </Style.Resources>
+    </Style>
+    
+    <Style Selector=":is(Border).ButtonBackground">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradient}"/>
+        <Setter Property="BorderBrush" Value="#252525"/>
+        <Setter Property="BorderThickness" Value="0,1,1,1"/>
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.1"/>
+                </Transitions>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradient}"/>
+        <Setter Property="BorderBrush" Value="#252525"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="MinWidth" Value="100"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Transitions">
+            <Setter.Value>
+                <Transitions>
+                    <BrushTransition Property="Background" Duration="0:0:0.1"/>
+                </Transitions>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradientOnHover}"/>
+        <Setter Property="BorderBrush" Value="#252525"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style Selector="Button:pressed ContentPresenter">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradientOnPressed}"/>
+        <Setter Property="BorderBrush" Value="#252525"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+    <Style Selector="DatePicker">
+        <Setter Property="Background" Value="#333333"/>
+        <Setter Property="BorderBrush" Value="#252525"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Cursor" Value="Hand"/>
+    </Style>
+
+    <Style Selector="DatePicker:pointerover /template/ Button /template/ ContentPresenter">
+        <Setter Property="Background" Value="#444444"/>
+    </Style>
+    
+    <Style Selector=":is(Border).ButtonBackground:pointerover">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradientOnHover}"/>
+    </Style>
+
+    <Style Selector="RadioButton.MovementTypeSelector:checked /template/ Border">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundGradientOnPressed}"/>
+    </Style>
+
+    <Style Selector="RadioButton.MovementTypeSelector:checked /template/ ContentPresenter, 
+           Button.ButtonBackground:pressed ContentPresenter">
+        <Setter Property="RenderTransform" Value="scale(0.95)"/>
+    </Style>
+
+    <Style Selector="RadioButton.MovementTypeSelector:nth-child(1) /template/ Border">
+        <Setter Property="CornerRadius" Value="7,0,0,7"/>
+        <Setter Property="BorderThickness" Value="1,1,1,1"/>
+    </Style>
+
+    <Style Selector="RadioButton.MovementTypeSelector:nth-last-child(1) /template/ Border">
+        <Setter Property="CornerRadius" Value="0,7,7,0"/>
+        <Setter Property="BorderThickness" Value="0,1,1,1"/>
+    </Style>
+    
+    <Style Selector="Border.AppTitle">
+        <Setter Property="Padding" Value="15"/>
+    </Style>
+    
+    <Style Selector="StackPanel.AppTitle">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="PathIcon.AppTitle">
+        <Setter Property="Foreground" Value="LightGreen" />
+        <Setter Property="Margin" Value="0, 0, 20, 0" />
+    </Style>
+    
+    <Style Selector="TextBlock.AppTitle">
+        <Setter Property="FontSize" Value="30"></Setter>
+        <Setter Property="FontWeight" Value="DemiBold"></Setter>
+        <Setter Property="Foreground" Value="Gold"></Setter>
+    </Style>
+
+    <Style Selector="RadioButton.MovementTypeSelector">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Padding="5" Classes="ButtonBackground">
+                        <ContentPresenter Padding="3"
+                           Content="{TemplateBinding ContentPresenter.Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Styles>
