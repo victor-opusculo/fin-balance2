@@ -211,7 +211,7 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Grid RowDefinitions="Auto" ColumnDefinitions="*,Auto" Grid.Row="3">
+            <Grid Margin="0, 7, 0, 0" RowDefinitions="Auto" ColumnDefinitions="*,Auto" Grid.Row="3">
                 <Grid.Resources>
                     <vm:BalanceValueStyleConverter x:Key="BalanceValueStyleConverter"/>
                 </Grid.Resources>
