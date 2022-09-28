@@ -99,6 +99,12 @@ namespace FinBalance2.Services
                     command.Parameters.Add("Notes", OdbcType.VarChar, 0).Value = move.Notes;
 
                     affectedRows += await command.ExecuteNonQueryAsync();
+
+                    string getNewIdQuery = @"SELECT @@IDENTITY ";
+                    OdbcCommand command2 = new(getNewIdQuery, conn);
+                    int newId = Convert.ToInt32(await command2.ExecuteScalarAsync());
+
+                    move.Id = newId;
                 }
                 else
                 {
